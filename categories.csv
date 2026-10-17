@@ -1,0 +1,9 @@
+category_id,name,daily_late_fee,max_loan_days,requires_cert
+17,Power Tools,1.20,7,Y
+12,Hand Tools,0.20,14,N
+25,Ladders & Access,1.00,7,N
+11,Yard & Garden,0.75,7,N
+26,Cleaning,1.20,3,N
+19,Woodworking,1.60,7,Y
+10,Plumbing,0.50,7,N
+15,Automotive,1.25,5,Y
