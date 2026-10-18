@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="582" dy="357" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="1226" dy="810" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -694,11 +694,11 @@
         <mxCell id="bgrQH2-ndO-N5xyLUQUB-95" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="(1,1)" vertex="1">
           <mxGeometry height="30" width="60" x="1785" y="252.5" as="geometry" />
         </mxCell>
-        <mxCell id="bgrQH2-ndO-N5xyLUQUB-96" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Data Before Normalizing as Existing in Current Database" vertex="1">
+        <mxCell id="bgrQH2-ndO-N5xyLUQUB-96" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="Data Before Normalizing as Existing in Current Database" vertex="1">
           <mxGeometry height="100" width="340" x="195" y="30" as="geometry" />
         </mxCell>
-        <mxCell id="bgrQH2-ndO-N5xyLUQUB-97" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(236, 236, 236); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;Data After Normalizing as Upgraded Database&lt;/span&gt;" vertex="1">
-          <mxGeometry height="40" width="340" x="1670" y="40" as="geometry" />
+        <mxCell id="95mK_sSXXovBFhkqDXp1-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-weight: 700;&quot;&gt;Data After Normalizing as Upgraded Database&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="290" x="1700" y="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
