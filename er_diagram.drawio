@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="762" dy="504" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="813" dy="538" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -274,12 +274,12 @@
         <mxCell id="3tLJ5EGqrz7D2Etotps9-25" parent="3tLJ5EGqrz7D2Etotps9-21" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" value="" vertex="1">
           <mxGeometry height="50" width="250" y="60" as="geometry" />
         </mxCell>
-        <mxCell id="3tLJ5EGqrz7D2Etotps9-26" parent="3tLJ5EGqrz7D2Etotps9-25" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;" value="&#xa;&#xa;FK1" vertex="1">
+        <mxCell id="3tLJ5EGqrz7D2Etotps9-26" parent="3tLJ5EGqrz7D2Etotps9-25" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;" value="" vertex="1">
           <mxGeometry height="50" width="30" as="geometry">
             <mxRectangle height="50" width="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3tLJ5EGqrz7D2Etotps9-27" parent="3tLJ5EGqrz7D2Etotps9-25" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=1" value="First_Name&#xa;Last_Name&#xa;Email" vertex="1">
+        <mxCell id="3tLJ5EGqrz7D2Etotps9-27" parent="3tLJ5EGqrz7D2Etotps9-25" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=1" value="First_Name&#xa;Last_Name&#xa;Staff_Email" vertex="1">
           <mxGeometry height="50" width="220" x="30" as="geometry">
             <mxRectangle height="50" width="220" as="alternateBounds" />
           </mxGeometry>
@@ -313,9 +313,6 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="bgrQH2-ndO-N5xyLUQUB-1" parent="1" style="whiteSpace=wrap;html=1;" value="WE HAVE TO DECIDE PRIMARY COMPOSITE FOR LOAN&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;And look at foreign keys everywhere&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="115" width="160" x="680" y="670" as="geometry" />
-        </mxCell>
         <mxCell id="bgrQH2-ndO-N5xyLUQUB-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="(0,4)" vertex="1">
           <mxGeometry height="30" width="60" x="520" y="450" as="geometry" />
         </mxCell>
@@ -338,7 +335,7 @@
           <mxGeometry height="30" width="60" x="630" y="484" as="geometry" />
         </mxCell>
         <mxCell id="bgrQH2-ndO-N5xyLUQUB-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="(0,N)" vertex="1">
-          <mxGeometry height="30" width="60" x="395" y="680" as="geometry" />
+          <mxGeometry height="30" width="60" x="395" y="710" as="geometry" />
         </mxCell>
         <mxCell id="bgrQH2-ndO-N5xyLUQUB-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="(0,N)" vertex="1">
           <mxGeometry height="30" width="60" x="240" y="790" as="geometry" />
