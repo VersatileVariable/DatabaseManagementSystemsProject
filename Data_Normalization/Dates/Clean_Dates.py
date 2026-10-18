@@ -1,7 +1,7 @@
 import csv
 import datetime
 
-filename = "CSVs/loans.csv"
+filename = "data/loans.csv"
 updatefilename = "Data_Normalization/Dates/cleaned_dates.csv"
 
 fields = []

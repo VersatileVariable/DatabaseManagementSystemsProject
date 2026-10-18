@@ -1,7 +1,7 @@
 import csv
 from datetime import datetime
 
-filename = "cleaned_dates.csv"
+filename = "Data_Normalization/Dates/cleaned_dates.csv"
 rows = []
 aggregate = 0
 
