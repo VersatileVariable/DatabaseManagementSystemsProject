@@ -11,6 +11,7 @@ updatedRows = []
 
 with open (filename, 'r') as csvfile:
     csvreader = csv.reader(csvfile)
+    fields = next(csvreader)
 
     for row in csvreader:
         rows.append(row)
@@ -27,7 +28,10 @@ with open (filename, 'r') as csvfile:
         updated_out_date = datetime.datetime.now()
         updated_back_date = datetime.datetime.now()
 
-        if out_date != " " and back_date != " ":
+        if (out_date == "") or (back_date == ""):
+            continue
+        elif out_date != " " and back_date != " ":
+        
             if("/" in out_date):
                 updated = out_date.split("/")
                 print(updated)
