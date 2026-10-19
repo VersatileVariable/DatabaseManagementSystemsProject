@@ -18,7 +18,7 @@ Date: October 18, 2026
 Tool: Gemini
 
 Use:
-Advise as to what the errors within the Clean_Dates.py was. Gemini returned 62 whereas we were getting 69. I had Gemini help me identify why (header issue and recording the null out and back dates incorrectly), then I had it tell me what char (or lack thereof) that the null values were in order to handle them. From there I nested everything into a bigger conditional statement and upon identification of the null values break/continue through the statement because there was no update needed for a nonexisting date.
+Advise as to what the errors within the Clean_Dates.py was. Gemini returned 62 whereas we were getting 69 (I did NOT ask for the purpose of getting the answer I was trying to contextulize it). I had Gemini help me identify why (header issue and recording the null out and back dates incorrectly), then I had it tell me what char (or lack thereof) that the null values were in order to handle them. From there I nested everything into a bigger conditional statement and upon identification of the null values break/continue through the statement because there was no update needed for a nonexisting date.
 
 Why ask:
 The file wouldn't run at first on my machine and I sent the code through Gemini to contextulize and then ask why. Then it returned a value seperate from the one returned by the code previoulsy, this indicated there there was more debugging needed so I inquired on how to fix it.
