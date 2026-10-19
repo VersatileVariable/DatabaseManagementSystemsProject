@@ -1,3 +1,5 @@
+https://github.com/VersatileVariable/DatabaseManagementSystemsProject
+
 Date: October 17, 2026
 Tool: ChatGPT
 What was asked and What was Done with the Answer: A variety of debugging questions as I was working through scripts to process the spreadsheet data. I used GeeksForGeeks to learn the libraries I needed to use, then when I ran into issues, I would ask ChatGPT to help explain why I was going wrong. I haven't used Python much, so most of this was beginner de-bugging as I was learning how to use the various libraries.
