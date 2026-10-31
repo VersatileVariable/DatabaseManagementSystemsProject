@@ -1,8 +1,8 @@
 CREATE TABLE category (
   category_id INT PRIMARY KEY NOT NULL,
-  name VARCHAR(50) unique NOT NULL,
-  daily_late_fee DECIMAL(6,2) NOT NULL,
-  max_loan_days INT NOT NULL,
+  name VARCHAR(50) UNIQUE NOT NULL,
+  daily_late_fee DECIMAL(6,2) NOT NULL CHECK(daily_late_fee >= 0),
+  max_loan_days INT NOT NULL CHECK (max_loan_days >= 1),
   requires_certification BOOLEAN NOT NULL
 );
 
@@ -28,32 +28,37 @@ CREATE TABLE tool (
   tool_id INT PRIMARY KEY NOT NULL,
   name VARCHAR(100) NOT NULL,
   brand VARCHAR(50) NOT NULL,
-  category_id INT FOREIGN KEY REFERENCES category(category_id) NOT NULL,
+  category_id INT,
 
   purchase_date DATE NOT NULL,
-  purchase_price DECIMAL(8,2) NOT NULL,
-  tool_condition ENUM('good', 'fair', 'needs_repair', 'retired') NOT NULL
+  purchase_price DECIMAL(8,2) NOT NULL CHECK (purchase_price >= 0),
+  tool_condition ENUM('good', 'fair', 'needs_repair', 'retired') NOT NULL,
+	
+  FOREIGN KEY (category_id) REFERENCES category(category_id)
+
 );
 
 CREATE TABLE certification (
-  --composite primary key for member and category (I need help making it)
-  member_id INT FOREIGN KEY REFERENCES member(member_id) NOT NULL,
-  category_id INT FOREIGN KEY REFERENCES category(category_id) NOT NULL,
-
+  member_id INT NOT NULL,
+  category_id INT NOT NULL,
   certified_on DATE NOT NULL,
-  PRIMARY KEY (member_id, category_id)
+  PRIMARY KEY (member_id, category_id),
+  FOREIGN KEY (member_id) REFERENCES member(member_id),
+  FOREIGN KEY (category_id) REFERENCES category(category_id)
 );
 
 CREATE TABLE checkout (
   checkout_id INT AUTO_INCREMENT PRIMARY KEY,
-  tool_id INT FOREIGN KEY REFERENCES tool(tool_id) NOT NULL,
-  member_id INT FOREIGN KEY REFERENCES member(member_id) NOT NULL,
-  staff_id INT FOREIGN KEY REFERENCES staff(staff_id) NOT NULL,
-
+  tool_id INT NOT NULL,
+  member_id INT NOT NULL,
+  staff_id INT NOT NULL,
   checkout_date DATE NOT NULL,
   due_date DATE NOT NULL,
-  --nullable return date
   return_date DATE,
-
-  late_fee DECIMAL(8,2) DEFAULT 0.00 NOT NULL
+  late_fee DECIMAL(8,2) DEFAULT 0.00 NOT NULL CHECK (late_fee >= 0),
+  FOREIGN KEY (tool_id) REFERENCES tool(tool_id),
+  FOREIGN KEY (member_id) REFERENCES member(member_id),
+  FOREIGN KEY (staff_id) REFERENCES staff(staff_id),
+  CONSTRAINT check1 CHECK (due_date >= checkout_date),
+  CONSTRAINT check2 CHECK(return_date IS NULL OR return_date >= checkout_date)
 );
