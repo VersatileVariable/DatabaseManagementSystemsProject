@@ -28,7 +28,7 @@ CREATE TABLE tool (
   tool_id INT PRIMARY KEY NOT NULL,
   name VARCHAR(100) NOT NULL,
   brand VARCHAR(50) NOT NULL,
-  category_id INT,
+  category_id INT NOT NULL,
 
   purchase_date DATE NOT NULL,
   purchase_price DECIMAL(8,2) NOT NULL CHECK (purchase_price >= 0),
