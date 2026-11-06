@@ -14,4 +14,4 @@ SELECT
 			(SELECT category_id FROM tool WHERE tool.tool_id = checkout.tool_id) AS cat_id
 	FROM checkout GROUP BY tool_id) AS derivTable
 WHERE category_rank <= 3
-ORDER BY cat_id, category_rank, tool_id;
+ORDER BY category_name, category_rank, tool_id;

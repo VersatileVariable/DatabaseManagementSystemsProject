@@ -1,4 +1,3 @@
-/*What about the tools with zero checkouts? <-- HAVE TO LOOK AT THIS*/
 SELECT tool_id, tool_name, times_checked_out FROM (
 	SELECT
 		tool.tool_id, 
@@ -13,12 +12,3 @@ WHERE times_checked_out > (SELECT AVG(count) FROM (
 		FROM checkout RIGHT JOIN tool ON checkout.tool_id = tool.tool_id GROUP BY tool_id)
 AS derivTable)
 ORDER BY times_checked_out DESC, tool_id;
-
-#(SELECT AVG(t) FROM (SELECT COUNT(tool_id) AS count FROM checkout GROUP BY tool_id)
-
-/*SELECT AVG(count) FROM (
-	SELECT
-		tool.tool_id, 
-		COUNT(checkout.tool_id) AS count
-		FROM checkout RIGHT JOIN tool ON checkout.tool_id = tool.tool_id GROUP BY tool_id)
-AS derivTable;*/

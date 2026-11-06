@@ -106,7 +106,7 @@ INSERT INTO category(category_id, name, daily_late_fee, max_loan_days, requires_
 	SELECT 
 		category_id,
 		name,
-		daily_late_fee, #THIS NEEDS TO BE TURNED INTO DOLLAR FORMAT?
+		daily_late_fee,
 		max_loan_days,
 		CASE 
 			WHEN requires_certification = 'Y' THEN TRUE
@@ -162,27 +162,33 @@ INSERT INTO certification(member_id, category_id, certified_on)
 		END
 	FROM stg_certification;
 
-INSERT INTO checkout(checkout_id, tool_id, member_id, staff_id, checkout_date, due_date, return_date, late_fee)
-	SELECT * FROM ( 
+INSERT INTO checkout(checkout_id, tool_id, member_id, staff_id, checkout_date, due_date, return_date,late_fee)
+	SELECT loan_id, tool_id, mem_id, stff_id, outDate, dueDate, returnDate,
+		(CASE 
+			WHEN returnDate IS NULL THEN 0
+			WHEN returnDate <= dueDate THEN 0
+			ELSE (DATEDIFF(returnDate, dueDate) * 
+				(SELECT daily_late_fee FROM category 
+					WHERE category_id = (SELECT category_id FROM tool WHERE derivedLoanInfo.tool_id = tool.tool_id)))
+		END) AS late_fee
+	FROM ( 
 		SELECT DISTINCT 
 			loan_id,
 			tool_id,
-			(SELECT member_id FROM `member` WHERE `member`.email = LOWER(TRIM(stg_checkout.member_email))),
-			(SELECT staff_id FROM staff WHERE staff.email = LOWER(TRIM(stg_checkout.staff_email))),
+			(SELECT member_id FROM `member` WHERE `member`.email = LOWER(TRIM(stg_checkout.member_email))) AS mem_id,
+			(SELECT staff_id FROM staff WHERE staff.email = LOWER(TRIM(stg_checkout.staff_email))) AS stff_id,
 			CASE 
 				WHEN LOCATE('/', out_date) != 0 THEN STR_TO_DATE(out_date,'%m/%d/%Y') 
 				ELSE STR_TO_DATE(out_date,'%Y-%m-%d') 
-			END AS outValue,
+			END AS outDate,
 			CASE
 				WHEN LOCATE('/', due_date) != 0 THEN STR_TO_DATE(due_date,'%m/%d/%Y') 
 				ELSE STR_TO_DATE(due_date,'%Y-%m-%d') 
-			END,
+			END AS dueDate,
 			CASE
 				WHEN LOCATE('/', back_date) != 0 THEN STR_TO_DATE(back_date,'%m/%d/%Y') 
 				WHEN LOCATE('-', back_date) != 0 THEN STR_TO_DATE(back_date,'%Y-%m-%d') 
 				ELSE NULL
-			END AS returnValue,
-			fee_charged
-			#CHECK ABOUT PRICING HERE
+			END AS returnDate
 		FROM stg_checkout) AS derivedLoanInfo
-	WHERE (tool_id IN (SELECT tool_id FROM tool)) AND (returnValue IS NULL OR returnValue >= outValue);
+	WHERE (tool_id IN (SELECT tool_id FROM tool)) AND (returnDate IS NULL OR returnDate >= outDate);
