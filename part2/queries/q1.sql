@@ -1,4 +1,4 @@
-SELECT tool_id, name, (SELECT name FROM stg_category WHERE stg_tools.category_id = stg_category.category_id) AS category_name
-FROM stg_tools 
+SELECT tool_id, name AS tool_name, (SELECT name FROM category WHERE tool.category_id = category.category_id) AS category_name
+FROM tool 
 WHERE tool_condition = 'needs_repair'
 ORDER BY tool_id;
