@@ -1,12 +1,12 @@
+NOT FINISHEDDDDDD
+
 Top three tools in each category by checkout count, 
 	using RANK(), among tools with at least one checkout; ties may produce more than three rows	
 category_name, tool_id, tool_name, checkout_count, category_rank	
 category_name, category_rank, tool_id
 
 SELECT category_name, tool_id, tool_name, checkout_count, 
-	RANK() OVER (PARTITION BY
-		checkout_count
-
+	RANK() OVER (PARTITION BY checkout_count ORDER BY tool_id DESC) count_rank
 FROM (
 	SELECT
 		(SELECT name FROM stg_category WHERE stg_category.category_id = 
