@@ -1,13 +1,28 @@
-Members who have checked out at least one tool from every category that requires certification	
+/*Members who have checked out at least one tool from every category that requires certification	
 member_id, email	
 member_id
 
-#DO I NEED TO CHECK TO CONFIRM THAT EACH CERTIFICATION IS DIFFERENT AND THAT THERE AReN"T ANY NULL
-SELECT member_id, email FROM 
-	(SELECT 
-		member_id, 
-		(SELECT email FROM stg_member WHERE stg_certification.member_id = stg_member.member_id) AS email, 
-		COUNT(member_id) AS quantity FROM stg_certification GROUP BY member_id) 
-		AS divTable
-	WHERE quantity = (SELECT COUNT(category_id) FROM stg_category WHERE requires_certification = TRUE)
-	ORDER BY member_id;
+#NULL*/
+SELECT mem_id AS member_id, (SELECT email FROM member WHERE member_id = mem_id) AS email FROM (
+	SELECT 
+		member_id AS mem_id, 
+		tool_id,
+		(SELECT category_id FROM tool WHERE checkout.tool_id = tool.tool_id) AS cat_id,
+		(SELECT requires_certification FROM category WHERE category.category_id = cat_id) AS req_cert
+	FROM checkout
+	ORDER BY mem_id) AS derivTable
+	WHERE req_cert = TRUE
+	GROUP BY mem_id
+	HAVING (COUNT(DISTINCT cat_id)) = (SELECT COUNT(DISTINCT category_id) FROM category WHERE requires_certification = TRUE);
+
+
+/*SELECT * FROM (
+	SELECT
+		member_id,
+		tool_id, 
+		(SELECT category_id FROM tool WHERE checkout.tool_id = tool.tool_id) AS cat_id,
+		(SELECT requires_certification FROM category WHERE category.category_id = 
+			(SELECT category_id FROM tool WHERE checkout.tool_id = tool.tool_id)) AS req_cert
+	FROM checkout) AS derivTable 
+	WHERE member_id = 2044 AND req_cert = TRUE
+	ORDER BY cat_id;*/
